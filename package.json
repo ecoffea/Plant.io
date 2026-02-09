@@ -1,4 +1,4 @@
-find . -name "package.json" -not -path "*/node_modules/*" -type f{
+{
   "name": "app-template",
   "version": "1.0.0",
   "private": true,
