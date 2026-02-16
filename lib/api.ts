@@ -1,4 +1,6 @@
-const API_URL =https://plantio-backend.onrender.com
+import { getApiBaseUrl } from "@/constants/oauth";
+
+const API_URL = getApiBaseUrl();
 
 interface RegisterData {
   email: string;
@@ -16,7 +18,8 @@ export const api = {
     const response = await fetch(`${API_URL}/api/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      credentials: 'include'
     });
     
     if (!response.ok) {
@@ -30,7 +33,8 @@ export const api = {
     const response = await fetch(`${API_URL}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      credentials: 'include'
     });
     
     if (!response.ok) {
@@ -47,7 +51,8 @@ export const api = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      credentials: 'include'
     });
     
     if (!response.ok) {
@@ -61,7 +66,8 @@ export const api = {
     const response = await fetch(`${API_URL}/api/offers`, {
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      },
+      credentials: 'include'
     });
     
     if (!response.ok) {
